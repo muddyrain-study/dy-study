@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">我是琚天雷</h1>
+    <button class="btn">确定</button>
+    <script>
+        const h1 = document.querySelector('.title')
+        const btn = document.querySelector('.btn')
+        btn.onclick = e=>{
+            h1.innerHTML = "我是琚吊毛"
+           delay(3000)
+        }
+        function delay(s){
+            var start = Date.now()
+            while(Date.now() - start < s){
+            }
+        }
+    </script>
+</body>
+</html> 
