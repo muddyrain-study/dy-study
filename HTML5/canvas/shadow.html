@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        width: 500px;
+        height: 300px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="500" height="300"></canvas>
+    <script>
+      const canvas = document.getElementsByTagName("canvas")[0];
+      const ctx = canvas.getContext("2d");
+      const image = new Image();
+      ctx.beginPath();
+      ctx.shadowColor = "blue";
+      ctx.shadowBlur = 5;
+      ctx.shadowOffsetX = 10;
+      ctx.shadowOffsetY = 10;
+      ctx.fillRect(20, 20, 200, 200);
+    </script>
+  </body>
+</html>
