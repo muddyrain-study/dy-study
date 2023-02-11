@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        width: 500px;
+        height: 300px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="500" height="300"></canvas>
+    <script>
+      const canvas = document.getElementsByTagName("canvas")[0];
+      const ctx = canvas.getContext("2d");
+      // 线端 样式
+      ctx.beginPath();
+      ctx.lineWidth = 15;
+      ctx.moveTo(100, 100);
+      ctx.lineTo(200, 100);
+      ctx.lineTo(100, 150);
+      ctx.lineCap = "round"; // butt square round
+      ctx.lineJoin = "miter"; // round bevel minter
+      ctx.miterLimit = 3;
+      ctx.stroke();
+    </script>
+  </body>
+</html>
