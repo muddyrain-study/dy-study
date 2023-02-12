@@ -8,13 +8,51 @@
   </head>
   <body>
     <script>
-      function* method() {
-        let info = yield 1;
-        console.log(info);
-        info = yield 2 + info;
-        console.log(info);
+      function* task() {
+        const d = yield 1;
+        console.log(d);
+        //d : 1
+        console.log("开始请求");
+        const resp = yield fetch(
+          "http://61.164.59.206:2359/wisdom-garbage/large/screen/alarm/event"
+        );
+        const result = yield resp.json();
+        console.log(result);
+        console.log("请求成功了");
       }
-      const g = method();
+
+      run(task);
+
+      function run(generatorFunc) {
+        const generator = generatorFunc();
+        let result = generator.next(); // 启动任务开始迭代
+        handleResult();
+        // 对 result 进行处理
+        function handleResult() {
+          if (result.done) {
+            return; // 迭代完成
+          }
+          // 迭代还未完成
+          // 1 迭代的数据是 promise
+          // 2 迭代的数据是 其他数据
+          if (result.value instanceof Promise) {
+            // promise 数据
+            result.value.then(
+              (data) => {
+                result = generator.next(data);
+                handleResult();
+              },
+              (err) => {
+                generator.throw(err);
+              }
+            );
+          } else {
+            // 其他数据
+            result = generator.next(result.value);
+            handleResult();
+          }
+        }
+      }
     </script>
   </body>
 </html>
