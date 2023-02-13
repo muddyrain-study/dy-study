@@ -35,6 +35,9 @@ class MySet {
       yield item;
     }
   }
+  get size() {
+    return this._datas.length;
+  }
   clear() {
     this._datas = [];
   }
