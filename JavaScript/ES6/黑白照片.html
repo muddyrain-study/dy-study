@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="./avatar.jpg" alt="" />
+    <button onclick="change()">转换</button>
+    <canvas width="428" height="484"></canvas>
+    <script>
+      function change() {
+        const img = document.querySelector("img");
+        const cvs = document.querySelector("canvas");
+        const ctx = cvs.getContext("2d");
+
+        ctx.drawImage(img, 0, 0);
+        const imagesData = ctx.getImageData(0, 0, img.width, img.height);
+        console.log(imagesData);
+        for (let i = 0; i <= imagesData.data.length; i += 4) {
+          const r = imagesData.data[i];
+          const g = imagesData.data[i + 1];
+          const b = imagesData.data[i + 2];
+          const avg = (r + g + b) / 3;
+          imagesData.data[i] =
+            imagesData.data[i + 1] =
+            imagesData.data[i + 2] =
+              avg;
+        }
+        ctx.putImageData(imagesData, 0, 0);
+      }
+    </script>
+  </body>
+</html>
