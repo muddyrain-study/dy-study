@@ -14,16 +14,25 @@ node2.next = node3;
 node3.next = node4;
 node4.next = node5;
 
+// function transform(root) {
+//     if (root.next.next === null) {
+//       root.next.next = root;
+//       return root.next;
+//     } else {
+//       var res = transform(root.next);
+//       root.next.next = root;
+//       root.next = null;
+//       return res;
+//     }
+//   }
 function transform(root) {
-  if (root.next.next === null) {
-    root.next.next = root;
-    return root.next;
-  } else {
-    var res = transform(root.next);
-    root.next.next = root;
-    root.next = null;
-    return res;
+  if (root === null || root.next === null) {
+    return root;
   }
+  const res = transform(root.next);
+  root.next.next = root;
+  root.next = null;
+  return res;
 }
 var newRoot = transform(node1);
 function loop(root) {
