@@ -1,6 +1,5 @@
-const MockJS = require("mockjs");
-
-const res = MockJS.mock({
+const Mock = require("mockjs");
+const result = Mock.mock({
   "datas|500-700": [
     {
       name: "@cname",
@@ -11,6 +10,5 @@ const res = MockJS.mock({
     },
   ],
 }).datas;
-
 const Student = require("../models/Student");
-Student.bulkCreate(res);
+Student.bulkCreate(result);

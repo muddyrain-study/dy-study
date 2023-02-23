@@ -1,16 +1,62 @@
 const Student = require("../models/Student");
 const { Op } = require("sequelize");
 const Class = require("../models/Class");
+const validate = require("validate.js");
+const moment = require("moment/moment");
+const { pick } = require("../util/propertyHelper");
 exports.addStudent = async function (stuObj) {
+  stuObj = pick(stuObj, "name", "birthday", "sex", "mobile", "ClassId");
+  validate.validators.classExits = async function (value) {
+    const c = await Class.findByPk(value);
+    if (c) {
+      return;
+    }
+    return "is not exist";
+  };
   const rule = {
     name: {
+      presence: {
+        allowEmpty: false,
+      },
+      type: "string",
+      length: {
+        maximum: 10,
+        minimum: 1,
+      },
+    },
+    birthday: {
+      presence: {
+        allowEmpty: false,
+      },
+      datetime: {
+        dateOnly: true,
+        earliest: +moment.utc().subtract(100, "y"),
+        latest: +moment.utc().subtract(5, "y"),
+      },
+    },
+    sex: {
       presence: true,
+      type: "boolean",
+    },
+    mobile: {
+      presence: {
+        allowEmpty: false,
+      },
+      format: /1\d{10}/,
+    },
+    ClassId: {
+      presence: true,
+      numericality: {
+        onlyInteger: true,
+        strict: false,
+      },
+      classExits: true,
     },
   };
-  const result = validate.validate(stuObj, rule);
+  const result = await validate.async(stuObj, rule);
   console.log(result);
-  // const ins = await Student.create(stuObj);
-  // return ins.toJSON();
+  const ins = await Student.create(stuObj);
+  return ins.toJSON();
 };
 
 exports.deleteStudent = async function (id) {
