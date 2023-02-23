@@ -12,7 +12,7 @@ module.exports = sequelize.define(
       type: DataTypes.STRING,
     },
     publishDate: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     author: {
