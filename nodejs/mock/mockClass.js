@@ -1,11 +1,14 @@
 const MockJS = require("mockjs");
 
 const res = MockJS.mock({
-  "data|10-16": [
+  "datas|16": [
     {
       "id|+1": 1,
+      name: "前端第 @id 期",
+      openDate: "@date",
     },
   ],
-});
+}).datas;
 
-console.log(res);
+const Class = require("../models/Class");
+Class.bulkCreate(res);

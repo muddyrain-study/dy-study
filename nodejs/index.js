@@ -1,3 +1,3 @@
 require("./models/sync");
-
-const Admin = require("./models/Admin");
+require("./models/relation");
+require("./mock/mockStudent");
