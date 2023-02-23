@@ -1,3 +1,3 @@
-require("./models/sync");
+const studentService = require("./services/studentService");
 
-const Admin = require("./models/Admin");
+studentService.addStudent();
