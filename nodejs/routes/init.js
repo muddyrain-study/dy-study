@@ -1,5 +1,6 @@
 require("./init");
 
+const cookieParser = require("cookie-parser");
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -7,6 +8,10 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, "../public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser(""));
+
+// 应用token中间件
+app.use(require("./tokenMiddleware"));
 
 // 处理 api 的请求
 app.use("/api/student", require("./api/student"));
