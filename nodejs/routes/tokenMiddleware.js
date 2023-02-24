@@ -1,5 +1,6 @@
 const { getErr } = require("./getSendResult");
 const { pathToRegexp } = require("path-to-regexp");
+const cryptor = require("../util/crypt");
 const needTokenApi = [
   { method: "POST", path: "/api/student" },
   { method: "PUT", path: "/api/student/:id" },
@@ -26,8 +27,8 @@ module.exports = (req, res, next) => {
     handleNonToken(req, res, next);
     return;
   }
-  //   const userId = cryptor.decrypt(token);
-  //   req.userId = userId;
+  const userId = cryptor.decrypt(token);
+  req.userId = userId;
   next();
 };
 
