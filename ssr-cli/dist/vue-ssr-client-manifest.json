@@ -1,0 +1,18 @@
+{
+  "publicPath": "/",
+  "all": [
+    "client.bundle.js"
+  ],
+  "initial": [
+    "client.bundle.js"
+  ],
+  "async": [],
+  "modules": {
+    "3d793f99": [
+      0
+    ],
+    "6fbc4fdc": [
+      0
+    ]
+  }
+}
