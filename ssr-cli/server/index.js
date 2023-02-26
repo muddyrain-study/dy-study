@@ -10,6 +10,7 @@ server.use(
 );
 server.get("*", async (req, res) => {
   try {
+    const url = req.url;
     // 2. 创建渲染器
     const render = createBundleRenderer(serverBundle, {
       template: fs.readFileSync(
@@ -18,10 +19,14 @@ server.get("*", async (req, res) => {
       ),
       clientManifest,
     });
-    const html = await render.renderToString();
+    const html = await render.renderToString({ url });
     res.send(html);
     // 3. 利用渲染器将vue实例转化成html字符串
   } catch (error) {
+    if (error.code === 404) {
+      res.status(404).send("找不到页面,404");
+      return;
+    }
     throw error;
   }
 });
