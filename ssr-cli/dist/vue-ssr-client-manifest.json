@@ -2,40 +2,43 @@
   "publicPath": "/",
   "all": [
     "client.bundle.js",
-    "302.bundle.js",
-    "512.bundle.js"
+    "600.bundle.js",
+    "302.bundle.js"
   ],
   "initial": [
     "client.bundle.js"
   ],
   "async": [
-    "302.bundle.js",
-    "512.bundle.js"
+    "600.bundle.js",
+    "302.bundle.js"
   ],
   "modules": {
-    "3d793f99": [
+    "5c378bd2": [
       0
     ],
-    "a743eb12": [
+    "66e0006e": [
       0
     ],
-    "45d34831": [
-      2
+    "7ca5ddc6": [
+      0
     ],
-    "d445a196": [
+    "66945a80": [
       1
     ],
-    "d5b52dbc": [
+    "1cbfb9c4": [
       2
     ],
-    "117e175e": [
+    "6df54000": [
       1
     ],
-    "a7ab8006": [
+    "500481cf": [
       2
     ],
-    "0e45cb2c": [
+    "efc2a822": [
       1
+    ],
+    "0f1dcdbe": [
+      2
     ],
     "0c744d0c": [
       0

@@ -1,5 +1,8 @@
 import createApp from "../main";
 
-const app = createApp();
+const { app, store } = createApp();
 
-app.app.$mount("#app");
+app.$mount("#app");
+if (window.__INITIAL_STATE__) {
+  store.replaceState(window.__INITIAL_STATE__);
+}
