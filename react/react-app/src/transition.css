@@ -36,3 +36,17 @@
   transform: translateX(0);
   opacity: 1;
 } */
+
+.exit-active {
+  transition: 1s;
+  opacity: 0;
+}
+.enter,
+.appear {
+  opacity: 0;
+}
+.enter-active,
+.appear-active {
+  transition: 1s;
+  opacity: 1;
+}

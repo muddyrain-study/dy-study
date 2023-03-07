@@ -1,4 +1,4 @@
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { useState } from "react";
 import "./transition.css";
 import "animate.css";
@@ -22,18 +22,32 @@ const MyTransition = ({ children, visible, ...props }) => {
 };
 
 function App() {
-  const [inProp, setInProp] = useState(true);
+  const [show1, setShow1] = useState(true);
   return (
     <div className="container">
       <div className="comp-container">
-        <MyTransition appear visible={inProp}>
-          <h2 className="title animate__animated animate__faster">com1</h2>
-        </MyTransition>
-        <MyTransition mountOnEnter visible={!inProp}>
-          <h2 className="title animate__animated animate__faster">com2</h2>
-        </MyTransition>
+        <SwitchTransition>
+          <CSSTransition
+            appear
+            in={show1}
+            timeout={500}
+            key={show1}
+            classNames={{
+              exit: "animate__bounceOut",
+              enterActive: "animate__bounceIn",
+              appearActive: "animate__bounceIn",
+            }}
+          >
+            <h2
+              className="animate__animated animate_slow"
+              style={{ textAlign: "center" }}
+            >
+              {show1 ? "title1" : "title2"}
+            </h2>
+          </CSSTransition>
+        </SwitchTransition>
       </div>
-      <button onClick={() => setInProp(!inProp)}>Click to Enter</button>
+      <button onClick={() => setShow1(!show1)}>Click to Enter</button>
     </div>
   );
 }
