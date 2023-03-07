@@ -1,38 +1,25 @@
-import React, { useReducer } from "react";
-function reducer(state, action) {
-  switch (action.type) {
-    case "increase":
-      return state + 1;
-    case "decrease":
-      return state - 1;
-    default:
-      return state;
-  }
+import React, { useState } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
+
+function A() {
+  const [a, setA] = useState(0);
+  return <h1>组件A</h1>;
+}
+function B() {
+  return <h1>组件B</h1>;
+}
+function C() {
+  return <h1>组件C</h1>;
 }
 
-const App = () => {
-  const [state, dispatch] = useReducer(reducer, 0);
+export default function App() {
   return (
-    <div>
-      <span>
-        <button
-          onClick={() => {
-            dispatch({ type: "decrease" });
-          }}
-        >
-          -
-        </button>
-        <span>{state}</span>
-        <button
-          onClick={() => {
-            dispatch({ type: "increase" });
-          }}
-        >
-          +
-        </button>
-      </span>
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/a" element={<A />} />
+        <Route path="/a/b" element={<B />} />
+        <Route path="/a/c" element={<C />} />
+      </Routes>
+    </HashRouter>
   );
-};
-
-export default App;
+}
