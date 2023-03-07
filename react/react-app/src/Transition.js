@@ -1,54 +1,52 @@
-import { CSSTransition, SwitchTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useState } from "react";
 import "./transition.css";
 import "animate.css";
-
-const MyTransition = ({ children, visible, ...props }) => {
-  return (
-    <CSSTransition
-      in={visible}
-      timeout={1000}
-      classNames={{
-        exitActive: "animate__fadeOutLeft",
-        exitDone: "exit-done",
-        enterActive: "animate__fadeInRight",
-        appearActive: "animate__fadeInRight",
-      }}
-      {...props}
-    >
-      {children}
-    </CSSTransition>
-  );
-};
-
+import { v4 as uuid } from "uuid";
 function App() {
-  const [show1, setShow1] = useState(true);
+  const [items, setItems] = useState(() => [
+    {
+      id: uuid(),
+      text: "Buy eggs",
+    },
+    {
+      id: uuid(),
+      text: "Pay bills",
+    },
+    {
+      id: uuid(),
+      text: "Invite friends over",
+    },
+    {
+      id: uuid(),
+      text: "Fix the TV",
+    },
+  ]);
   return (
-    <div className="container">
-      <div className="comp-container">
-        <SwitchTransition>
-          <CSSTransition
-            appear
-            in={show1}
-            timeout={500}
-            key={show1}
-            classNames={{
-              exit: "animate__bounceOut",
-              enterActive: "animate__bounceIn",
-              appearActive: "animate__bounceIn",
-            }}
-          >
-            <h2
-              className="animate__animated animate_slow"
-              style={{ textAlign: "center" }}
+    <TransitionGroup appear>
+      {items.map((item) => (
+        <CSSTransition
+          timeout={1000}
+          key={item.id}
+          classNames={{
+            exit: "animate__bounceOut",
+            enterActive: "animate__bounceIn",
+            appearActive: "animate__bounceIn",
+          }}
+        >
+          <div>
+            <span> {item.text}</span>
+            <button
+              onClick={() => {
+                setItems(items.filter((c) => c.id !== item.id));
+              }}
             >
-              {show1 ? "title1" : "title2"}
-            </h2>
-          </CSSTransition>
-        </SwitchTransition>
-      </div>
-      <button onClick={() => setShow1(!show1)}>Click to Enter</button>
-    </div>
+              删除
+            </button>
+          </div>
+        </CSSTransition>
+      ))}
+    </TransitionGroup>
   );
 }
 
