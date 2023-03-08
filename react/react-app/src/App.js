@@ -1,20 +1,23 @@
 import React from "react";
-import * as Pages from "./pages";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
+import {
+  Route,
+  Routes,
+  BrowserRouter,
+  useInRouterContext,
+} from "react-router-dom";
+
+function Page1(props) {
+  return <h1>Page1</h1>;
+}
+
 export default function App() {
   return (
-    <div className="main">
-      <Router>
-        <Pages.NavBar></Pages.NavBar>
-        <div className="page-container">
-          <Routes>
-            <Route path="/" element={<Pages.Home />} />
-            <Route path="/news" element={<Pages.News />} />
-            <Route path="/personal" element={<Pages.Personal />} />
-          </Routes>
-        </div>
-      </Router>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/:id/:id" element={<Page1 />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
