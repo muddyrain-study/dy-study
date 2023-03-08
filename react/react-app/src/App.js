@@ -11,13 +11,5 @@ function Page1(props) {
 }
 
 export default function App() {
-  return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/:id/:id" element={<Page1 />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+  return <div></div>;
 }
