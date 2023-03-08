@@ -1,25 +1,20 @@
-import React, { useState } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
-
-function A() {
-  const [a, setA] = useState(0);
-  return <h1>组件A</h1>;
-}
-function B() {
-  return <h1>组件B</h1>;
-}
-function C() {
-  return <h1>组件C</h1>;
-}
-
+import React from "react";
+import * as Pages from "./pages";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 export default function App() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/a" element={<A />} />
-        <Route path="/a/b" element={<B />} />
-        <Route path="/a/c" element={<C />} />
-      </Routes>
-    </HashRouter>
+    <div className="main">
+      <Router>
+        <Pages.NavBar></Pages.NavBar>
+        <div className="page-container">
+          <Routes>
+            <Route path="/" element={<Pages.Home />} />
+            <Route path="/news" element={<Pages.News />} />
+            <Route path="/personal" element={<Pages.Personal />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   );
 }
