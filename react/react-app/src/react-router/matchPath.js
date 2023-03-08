@@ -5,8 +5,7 @@ import { pathToRegexp } from "path-to-regexp";
  * @param {*} path 路径规则
  * @param {*} options 相关配置，该配置是一个对象，该对象中，可以出现：exact、sensitive、strict
  */
-export default function matchPath(path, options) {
-  const pathname = window.location.pathname;
+export default function matchPath(path, pathname, options) {
   const keys = []; //保存路径规则中的关键字
   const regExp = pathToRegexp(path, keys, getOptions(options));
   const result = regExp.exec(pathname);
