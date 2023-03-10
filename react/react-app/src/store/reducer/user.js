@@ -1,21 +1,40 @@
 import * as usersAction from "../action/user-action";
 import { v4 as uuid } from "uuid";
 
-const initialState = [
-  { id: uuid(), name: "用户1", age: 11 },
-  { id: uuid(), name: "用户2", age: 12 },
-];
+const initialState = {
+  isLoading: false,
+  datas: [],
+};
 
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case usersAction.ADDUSER:
-      return [...state, payload];
+      return {
+        ...state,
+        datas: [...state.data, payload],
+      };
     case usersAction.DELETEUSER:
-      return state.filter((it) => it.id !== payload);
+      return {
+        ...state,
+        datas: state.datas.filter((it) => it.id !== payload),
+      };
     case usersAction.UPDATEUSER:
-      return state.map((it) =>
-        it.id === payload.id ? { ...it, ...payload } : it
-      );
+      return {
+        ...state,
+        datas: state.datas.map((it) =>
+          it.id === payload.id ? { ...it, ...payload } : it
+        ),
+      };
+    case usersAction.SETUSER:
+      return {
+        ...state,
+        datas: payload,
+      };
+    case usersAction.SETLOADING:
+      return {
+        ...state,
+        isLoading: payload,
+      };
     default:
       return state;
   }
