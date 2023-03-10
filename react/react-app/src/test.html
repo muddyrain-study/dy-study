@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function* createGenertor() {
+        console.log("生成器函数的函数体 开始");
+        yield;
+        console.log("生成器函数的函数体 运行1  ");
+        yield;
+        console.log("生成器函数的函数体 运行2  ");
+        yield;
+      }
+      const genertor = createGenertor();
+    </script>
+  </body>
+</html>
