@@ -1,10 +1,8 @@
-import login from "./login";
-import user from "./user";
+import counter from "./counter";
 import { combineReducers } from "../../redux";
 
 export default combineReducers({
-  loginUser: login,
-  users: user,
+  counter,
 });
 // export default function reducer(state = {}, action) {
 //   const newState = {

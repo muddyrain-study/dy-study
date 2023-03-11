@@ -1,4 +1,7 @@
 import store from "./index";
-import { fetchUsers } from "./action/user-action";
+import * as counter from "./action/counter";
 
-store.dispatch(fetchUsers());
+window.increase = () => store.dispatch(counter.increase());
+window.decrease = () => store.dispatch(counter.decrease());
+window.asyncIncrease = () => store.dispatch(counter.asyncIncrease());
+window.asyncDecrease = () => store.dispatch(counter.asyncDecrease());

@@ -11,7 +11,7 @@ export default function reducer(state = initialState, { type, payload }) {
     case usersAction.ADDUSER:
       return {
         ...state,
-        datas: [...state.data, payload],
+        datas: [...state.datas, payload],
       };
     case usersAction.DELETEUSER:
       return {
