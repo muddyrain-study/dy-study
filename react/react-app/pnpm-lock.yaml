@@ -4,6 +4,7 @@ specifiers:
   '@formily/antd': ^2.2.20
   '@formily/core': ^2.2.20
   '@formily/react': ^2.2.20
+  '@redux-devtools/extension': ^3.2.5
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/react': ^13.0.0
   '@testing-library/user-event': ^13.2.1
@@ -11,6 +12,7 @@ specifiers:
   '@types/redux': ^3.6.0
   animate.css: ^4.1.1
   antd: ^5.3.0
+  connected-react-router: ^6.9.3
   history: ^5.3.0
   moment: ^2.29.4
   path-to-regexp: ^6.2.1
@@ -33,6 +35,7 @@ dependencies:
   '@formily/antd': 2.2.20_6od6gngxdtdpmakxsycmb5iyqe
   '@formily/core': 2.2.20
   '@formily/react': 2.2.20_biqbaboplfbrettd7655fr4n2y
+  '@redux-devtools/extension': 3.2.5_redux@4.2.1
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
@@ -40,6 +43,7 @@ dependencies:
   '@types/redux': 3.6.0
   animate.css: 4.1.1
   antd: 5.3.0_jb42yyeu5qxbfieyxjks6malva
+  connected-react-router: 6.9.3_jtmqsgpwawz3kdrf2ssdnykafu
   history: 5.3.0
   moment: 2.29.4
   path-to-regexp: 6.2.1
@@ -2337,6 +2341,16 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /@redux-devtools/extension/3.2.5_redux@4.2.1:
+    resolution: {integrity: sha512-UhyDF7WmdnCrN1s++YC4sdQCo0z6YUnoB2eCh15nXDDq3QH1jDju1144UNRU6Nvi4inxhaIum4m9BXVYWVC1ng==}
+    peerDependencies:
+      redux: ^3.1.0 || ^4.0.0
+    dependencies:
+      '@babel/runtime': 7.21.0
+      immutable: 4.3.0
+      redux: 4.2.1
+    dev: false
+
   /@redux-saga/core/1.2.2:
     resolution: {integrity: sha512-0qr5oleOAmI5WoZLRA6FEa30M4qKZcvx+ZQOQw+RqFeH8t20bvhE329XSPsNfTVP8C6qyDsXOSjuoV+g3+8zkg==}
     dependencies:
@@ -4121,6 +4135,26 @@ packages:
   /connect-history-api-fallback/2.0.0:
     resolution: {integrity: sha512-U73+6lQFmfiNPrYbXqr6kZ1i1wiRqXnp2nhMsINseWXO8lDau0LGEffJ8kQi4EjLZympVgRdvqjAgiZ1tgzDDA==}
     engines: {node: '>=0.8'}
+    dev: false
+
+  /connected-react-router/6.9.3_jtmqsgpwawz3kdrf2ssdnykafu:
+    resolution: {integrity: sha512-4ThxysOiv/R2Dc4Cke1eJwjKwH1Y51VDwlOrOfs1LjpdYOVvCNjNkZDayo7+sx42EeGJPQUNchWkjAIJdXGIOQ==}
+    peerDependencies:
+      history: ^4.7.2
+      react: ^16.4.0 || ^17.0.0
+      react-redux: ^6.0.0 || ^7.1.0
+      react-router: ^4.3.1 || ^5.0.0
+      redux: ^3.6.0 || ^4.0.0
+    dependencies:
+      history: 5.3.0
+      lodash.isequalwith: 4.4.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-redux: 8.0.5_egguyi6kvemdtrnkbl3bdoeaey
+      redux: 4.2.1
+    optionalDependencies:
+      immutable: 4.3.0
+      seamless-immutable: 7.1.4
     dev: false
 
   /content-disposition/0.5.4:
@@ -6060,6 +6094,10 @@ packages:
     resolution: {integrity: sha512-eY+Y0qcsB4TZKwgQzLaE/lqYMlKhv5J9dyd2RhhtGhNo2njPXDqU9XPfcNfa3MIDsdtZt5KlkIsirlo4dHsWdQ==}
     dev: false
 
+  /immutable/4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
+    dev: false
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -7253,6 +7291,10 @@ packages:
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+    dev: false
+
+  /lodash.isequalwith/4.4.0:
+    resolution: {integrity: sha512-dcZON0IalGBpRmJBmMkaoV7d3I80R2O+FrzsZyHdNSFrANq/cgDqKQNmAHE8UEj4+QYWwwhkQOVdLHiAopzlsQ==}
     dev: false
 
   /lodash.memoize/4.1.2:
@@ -9984,6 +10026,12 @@ packages:
     dependencies:
       compute-scroll-into-view: 3.0.0
     dev: false
+
+  /seamless-immutable/7.1.4:
+    resolution: {integrity: sha512-XiUO1QP4ki4E2PHegiGAlu6r82o5A+6tRh7IkGGTVg/h+UoeX4nFBeCGPOhb4CYjvkqsfm/TUtvOMYC1xmV30A==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /select-hose/2.0.0:
     resolution: {integrity: sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg==}

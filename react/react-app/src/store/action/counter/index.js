@@ -1,9 +1,9 @@
 import { createActions, handleActions } from "redux-actions";
 export const actionTypes = {
-  increase: Symbol("increase"),
-  decrease: Symbol("decrease"),
-  asyncIncrease: Symbol("async-increase"), //异步增加
-  asyncDecrease: Symbol("async-decrease"),
+  increase: "increase",
+  decrease: "decrease",
+  asyncIncrease: "async-increase", //异步增加
+  asyncDecrease: "async-decrease",
   add: "ADD",
 };
 
@@ -21,6 +21,9 @@ export const reducer = handleActions(
   {
     [actions.add]: (state, action) => {
       return state + action.payload;
+    },
+    [actions.increase]: (state, action) => {
+      return state + 1;
     },
   },
   10
