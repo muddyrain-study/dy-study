@@ -1,4 +1,4 @@
-import { createActions, handleActions, combineActions } from "redux-actions";
+import { createActions, handleActions } from "redux-actions";
 export const actionTypes = {
   increase: Symbol("increase"),
   decrease: Symbol("decrease"),
@@ -25,4 +25,3 @@ export const reducer = handleActions(
   },
   10
 );
-combineActions();
