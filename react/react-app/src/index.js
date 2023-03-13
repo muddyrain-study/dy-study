@@ -2,11 +2,15 @@ import App from "./App";
 import dva from "dva";
 import counterModals from "./models/counter";
 import studentsModals from "./models/students";
-const app = dva();
+import routerConfig from "./routerConfig";
+import { createBrowserHistory } from "history";
+const app = dva({
+  history: createBrowserHistory(),
+});
 
 app.model(counterModals);
 app.model(studentsModals);
 
-app.router(App);
+app.router(routerConfig);
 
 app.start(document.querySelector("#root"));
