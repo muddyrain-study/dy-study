@@ -1,7 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import App from "./App";
-// import "./store/test";
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import dva from "dva";
+import counterModals from "./models/counter";
+import studentsModals from "./models/students";
+const app = dva();
 
-root.render(<App />);
+app.model(counterModals);
+app.model(studentsModals);
+
+app.router(App);
+
+app.start(document.querySelector("#root"));
